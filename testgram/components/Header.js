@@ -32,7 +32,7 @@ export default function Header() {
                     style={{
                         border: 'none',
                         background: 'whitesmoke',
-                        width: '250px',
+                        width: '100%',
                         height: '30px',
                         borderRadius: '5px',
                         padding: '5px',
@@ -51,7 +51,7 @@ export default function Header() {
             >
                 <div style={{ flex: 1 }}>
                     <img
-                        style={{ height: '25px' }}
+                        style={{ height: '25px', cursor: 'pointer' }}
                         className="headerIcon"
                         alt="homeIcon"
                         src="./img/icon/home.svg"
@@ -59,7 +59,7 @@ export default function Header() {
                 </div>
                 <div style={{ flex: 1 }}>
                     <img
-                        style={{ height: '25px' }}
+                        style={{ height: '25px', cursor: 'pointer' }}
                         className="headerIcon"
                         alt="homeIcon"
                         src="./img/icon/chat.svg"
@@ -67,7 +67,7 @@ export default function Header() {
                 </div>
                 <div style={{ flex: 1 }}>
                     <img
-                        style={{ height: '25px' }}
+                        style={{ height: '25px', cursor: 'pointer' }}
                         className="headerIcon"
                         alt="homeIcon"
                         src="./img/icon/add.svg"
@@ -75,7 +75,7 @@ export default function Header() {
                 </div>
                 <div style={{ flex: 1 }}>
                     <img
-                        style={{ height: '25px' }}
+                        style={{ height: '25px', cursor: 'pointer' }}
                         className="headerIcon"
                         alt="homeIcon"
                         src="./img/icon/navigation.png"
@@ -83,7 +83,7 @@ export default function Header() {
                 </div>
                 <div style={{ flex: 1 }}>
                     <img
-                        style={{ height: '25px' }}
+                        style={{ height: '25px', cursor: 'pointer' }}
                         className="headerIcon"
                         alt="homeIcon"
                         src="./img/icon/heart.svg"
@@ -96,6 +96,7 @@ export default function Header() {
                             width: '30px',
                             objectFit: 'cover',
                             borderRadius: '50%',
+                            cursor: 'pointer',
                         }}
                         className="headerIcon"
                         alt="homeIcon"

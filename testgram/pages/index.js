@@ -1,4 +1,3 @@
-import styles from '../styles/Home.module.css';
 import Head from 'next/head';
 import Header from '../components/Header';
 import ShortStory from '../components/ShortStory';
@@ -7,11 +6,11 @@ export default function Home() {
     return (
         <div
             style={{
-                justifyContent: 'center',
-                textAlign: 'center',
+                justifyContent: 'space-around',
+                textAlign: 'cente',
                 alignItems: 'center',
                 background: '#F7F7F7',
-                height: '1000px',
+                height: '2000px',
             }}
         >
             <Head>
