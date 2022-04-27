@@ -1,7 +1,12 @@
 import React from 'react';
 import Logo from './Logo';
 import { Grid } from '@mui/material';
+import { useState } from 'react';
+import { useContext } from 'react';
+import AuthContext from '../pages/authContext';
 export default function Header() {
+    const [menu, setMenu] = useState(false);
+    const val = useContext(AuthContext);
     return (
         <Grid
             container
@@ -101,7 +106,22 @@ export default function Header() {
                         className="headerIcon"
                         alt="homeIcon"
                         src="./img/Profile.jpg"
+                        onClick={() => setMenu(!menu)}
                     />
+                    <div
+                        style={{
+                            position: 'absolute',
+                            width: '150px',
+                            background: '#fff',
+                            textAlign: 'center',
+                            display: menu ? '' : 'none',
+                            padding: '8px',
+                        }}
+                    >
+                        <div>Profile</div>
+                        <div>Settings</div>
+                        <div>Logo out</div>
+                    </div>
                 </div>
             </Grid>
         </Grid>

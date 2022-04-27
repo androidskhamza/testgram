@@ -7,7 +7,6 @@ export default function index() {
     return (
         <div>
             <Header />
-            {/* body */}
             <Profile />
             <ProfilePost />
         </div>

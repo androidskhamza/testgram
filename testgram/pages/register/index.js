@@ -1,6 +1,24 @@
 import React from 'react';
+import { useState } from 'react';
 import Logo from '../../components/Logo';
+import { useRouter } from 'next/router';
 export default function index() {
+    const router = useRouter();
+    const [phone, getPhone] = useState('');
+    const [username, getUsername] = useState('');
+    const [password2, getPassword2] = useState('');
+    const [password, getPassword] = useState('');
+    const Signup = () => {
+        if (phone == '') {
+        }
+        if (username == '') {
+        }
+        if (password == password2) {
+        }
+        if (phone !== '' && username !== '' && password == password2) {
+            router.push('./login');
+        }
+    };
     return (
         <div
             style={{
@@ -58,6 +76,7 @@ export default function index() {
                         ></div>
                     </div>
                     <input
+                        onChange={(e) => getPhone(e.target.value)}
                         style={{
                             border: '1px groove ',
                             borderRadius: '5px',
@@ -67,19 +86,9 @@ export default function index() {
                             outline: 'none',
                             padding: '10px',
                         }}
-                        placeholder="Phone number or Email"
-                    />
-                    <input
-                        style={{
-                            border: '1px groove ',
-                            borderRadius: '5px',
-                            width: '100%',
-                            height: '35px',
-                            marginTop: '10px',
-                            outline: 'none',
-                            padding: '10px',
-                        }}
-                        placeholder="Full name"
+                        placeholder="Phone number"
+                        type="text"
+                        maxLength={8}
                     />
                     <input
                         style={{
@@ -92,6 +101,8 @@ export default function index() {
                             padding: '10px',
                         }}
                         placeholder="Username"
+                        onChange={(e) => getUsername(e.target.value)}
+                        type="text"
                     />
                     <input
                         style={{
@@ -103,9 +114,26 @@ export default function index() {
                             outline: 'none',
                             padding: '10px',
                         }}
-                        placeholder="password"
+                        type="password"
+                        placeholder="Password"
+                        onChange={(e) => getPassword(e.target.value)}
+                    />
+                    <input
+                        style={{
+                            border: '1px groove ',
+                            borderRadius: '5px',
+                            width: '100%',
+                            height: '35px',
+                            marginTop: '10px',
+                            outline: 'none',
+                            padding: '10px',
+                        }}
+                        type="password"
+                        placeholder="re type Password"
+                        onChange={(e) => getPassword2(e.target.value)}
                     />
                     <button
+                        onClick={() => Signup()}
                         style={{
                             border: '1px groove ',
                             borderRadius: '5px',
@@ -135,7 +163,7 @@ export default function index() {
                     padding: '20px ',
                 }}
             >
-                Have an account? <a href="#">Log in</a>
+                Have an account? <a href="./login">Log in</a>
             </div>
         </div>
     );

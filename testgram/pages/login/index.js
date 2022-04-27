@@ -1,7 +1,22 @@
 import React from 'react';
+import { useState } from 'react';
 import Logo from '../../components/Logo';
-
+import data from '../../data/data';
+import { useRouter } from 'next/router';
 export default function index() {
+    const router = useRouter();
+    const [phone, setPhone] = useState('');
+    const [password, setPassword] = useState('');
+    const Login = () => {
+        if (phone !== '' && password !== '') {
+            const user = data.filter((user) => user.phone == phone);
+            console.log(user);
+            if (user[0].password == password) {
+                
+                router.push('./');
+            }
+        }
+    };
     return (
         <div
             style={{
@@ -36,7 +51,9 @@ export default function index() {
                             outline: 'none',
                             padding: '10px',
                         }}
-                        placeholder="Phone number, username or email"
+                        placeholder="Phone"
+                        type="text"
+                        onChange={(e) => setPhone(e.target.value)}
                     />
                     <input
                         style={{
@@ -49,6 +66,8 @@ export default function index() {
                             padding: '10px',
                         }}
                         placeholder="password"
+                        type="password"
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                     <button
                         style={{
@@ -62,6 +81,7 @@ export default function index() {
                             color: 'white',
                             background: '#86C6F5',
                         }}
+                        onClick={() => Login()}
                     >
                         Login
                     </button>
@@ -88,7 +108,7 @@ export default function index() {
                     Log in with Facebook
                 </div>
                 <div style={{ textAlign: 'center', padding: '20px' }}>
-                    <a href="#">Forgot password?</a>
+                    <a href="./recoverpassword">Forgot password?</a>
                 </div>
             </div>
             <div
@@ -103,7 +123,7 @@ export default function index() {
                     padding: '20px',
                 }}
             >
-                Dont have account? <a href="#"> Sign up</a>
+                Dont have account? <a href="./register"> Sign up</a>
             </div>
         </div>
     );

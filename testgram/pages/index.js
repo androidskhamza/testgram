@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Header from '../components/Header';
 import ShortStory from '../components/ShortStory';
 import Post from '../components/Post';
+import { AuthContextProvider } from './authContext';
 export default function Home() {
     return (
         <div
@@ -17,12 +18,14 @@ export default function Home() {
                 <title>TestGram</title>
             </Head>
             {/* head */}
-            <Header />
-            {/* body */}
-            <div style={{ justifyContent: 'center', paddingTop: '20px' }}>
-                <ShortStory />
-                <Post />
-            </div>
+            <AuthContextProvider>
+                <Header />
+                {/* body */}
+                <div style={{ justifyContent: 'center', paddingTop: '20px' }}>
+                    <ShortStory />
+                    <Post />
+                </div>
+            </AuthContextProvider>
         </div>
     );
 }
