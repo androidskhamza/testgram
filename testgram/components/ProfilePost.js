@@ -4,7 +4,14 @@ import React from 'react';
 export default function ProfilePost() {
     return (
         <div style={{ justifyContent: 'center' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+            <div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'space-around',
+                    width: '400px',
+                    margin: 'auto',
+                }}
+            >
                 <div
                     style={{
                         display: 'flex',

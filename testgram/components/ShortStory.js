@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default function ShortStory() {
+    const storys = [1, 2, 3, 4];
     return (
         <div
             style={{
@@ -13,48 +14,24 @@ export default function ShortStory() {
                 background: '#FFF',
             }}
         >
-            <div>
-                <img
-                    alt="profilepic"
-                    src="./img/Profile.jpg"
-                    style={{
-                        padding: '1px',
-                        width: '45px',
-                        height: '45px',
-                        borderRadius: '50%',
-                        border: '2px solid  #fcb045 ',
-                        marginRight: '8px',
-                    }}
-                />
-            </div>
-            <div>
-                <img
-                    alt="profilepic"
-                    src="./img/Profile.jpg"
-                    style={{
-                        padding: '1px',
-                        width: '45px',
-                        height: '45px',
-                        borderRadius: '50%',
-                        border: '2px solid  #fcb045 ',
-                        marginRight: '8px',
-                    }}
-                />
-            </div>
-            <div>
-                <img
-                    alt="profilepic"
-                    src="./img/Profile.jpg"
-                    style={{
-                        padding: '1px',
-                        width: '45px',
-                        height: '45px',
-                        borderRadius: '50%',
-                        border: '2px solid  #fcb045 ',
-                        marginRight: '8px',
-                    }}
-                />
-            </div>
+            {storys.map((story) => {
+                return (
+                    <div>
+                        <img
+                            alt="profilepic"
+                            src="./img/Profile.jpg"
+                            style={{
+                                padding: '1px',
+                                width: '45px',
+                                height: '45px',
+                                borderRadius: '50%',
+                                border: '2px solid  #fcb045',
+                                marginRight: '8px',
+                            }}
+                        />
+                    </div>
+                );
+            })}
         </div>
     );
 }
