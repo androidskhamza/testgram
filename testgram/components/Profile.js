@@ -1,6 +1,8 @@
 import React from 'react';
-
+import Cookies from 'js-cookie';
 export default function Profile() {
+    let user = `${Cookies.get('token')}`;
+
     return (
         <div style={{ justifyContent: 'center', paddingTop: '20px' }}>
             <div
@@ -40,7 +42,7 @@ export default function Profile() {
                             alignItems: 'center',
                         }}
                     >
-                        <span style={{ fontSize: '30px' }}>Khamza9702</span>
+                        <span style={{ fontSize: '30px' }}>khamza</span>
                         <button
                             style={{
                                 border: '1px gray groove',

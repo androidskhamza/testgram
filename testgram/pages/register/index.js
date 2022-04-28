@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import Logo from '../../components/Logo';
 import { useRouter } from 'next/router';
+import UserDataService from '../api/userdata';
 export default function index() {
     const router = useRouter();
     const [phone, getPhone] = useState('');
@@ -16,7 +17,15 @@ export default function index() {
         if (password == password2) {
         }
         if (phone !== '' && username !== '' && password == password2) {
-            router.push('./login');
+            let body = { email: phone, password: password, username: username };
+            UserDataService.Register(body)
+                .then((res) => {
+                    Cookies.set('token', res.data.token);
+                    router.push('./profile');
+                })
+                .catch((e) => {
+                    console.log('e', e);
+                });
         }
     };
     return (
@@ -88,7 +97,6 @@ export default function index() {
                         }}
                         placeholder="Phone number"
                         type="text"
-                        maxLength={8}
                     />
                     <input
                         style={{

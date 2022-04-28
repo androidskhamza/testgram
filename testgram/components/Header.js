@@ -2,11 +2,15 @@ import React from 'react';
 import Logo from './Logo';
 import { Grid } from '@mui/material';
 import { useState } from 'react';
-import { useContext } from 'react';
-import AuthContext from '../pages/authContext';
+import jsCookie from 'js-cookie';
+import { useRouter } from 'next/router';
 export default function Header() {
+    const router = useRouter();
     const [menu, setMenu] = useState(false);
-    const val = useContext(AuthContext);
+    const Logout = () => {
+        jsCookie.remove('token');
+        router.push('./login');
+    };
     return (
         <Grid
             container
@@ -118,9 +122,11 @@ export default function Header() {
                             padding: '8px',
                         }}
                     >
-                        <div>Profile</div>
+                        <div onClick={() => router.push('./profile')}>
+                            Profile
+                        </div>
                         <div>Settings</div>
-                        <div>Logo out</div>
+                        <div onClick={() => Logout()}>Logo out</div>
                     </div>
                 </div>
             </Grid>
